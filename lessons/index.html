@@ -27,7 +27,7 @@
     const finishSuccessMessage = "Молодец. Good Result";
     const finishUnSuccessMessage = "Молодец. Но постарайся лучше";
 
-    const correctAnswersMinPercent = 50;
+    const correctAnswersMinPercent = 50; 
 
     let correctAnswersCount = 0;
 
@@ -35,6 +35,7 @@
 
     const userAnswer0 = prompt(word0);
     alert(userAnswer0 === word0translation);
+    document.write(userAnswer0)
     if (userAnswer0 === word0translation) {
         correctAnswersCount = correctAnswersCount + 1;
     }
