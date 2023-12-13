@@ -8,55 +8,55 @@
 </head>
 
 <body>
+    <script>
+        let balance = 110;
+        // --------------------------------
 
+        document.write('START', '<br>', '<br>');
+
+        let productPrice = window.prompt('How much does product costs?');
+        let newbalance = (balance - productPrice);
+        let newbalance1 = (newbalance - productPrice);
+        let newbalance2 = (newbalance1 - productPrice);
+
+        if (productPrice > balance) {
+            document.write('Not enough money', '<br>');
+        }
+        else {
+            document.write('Product purchased', '<br>');
+        } {
+            (balance - productPrice);
+        }
+
+        //----------------------------------
+
+        productPrice = window.prompt('How much does product costs?');
+
+        if (productPrice > newbalance) {
+            document.write('Not enough money', '<br>');
+        }
+        else {
+            document.write('Product purchased', '<br>');
+        } {
+            (newbalance - productPrice);
+        }
+
+        //----------------------------------
+
+        productPrice = window.prompt('How much does product costs?');
+
+        if (productPrice > newbalance1) {
+            document.write('Not enough money', '<br>');
+        }
+        else {
+            document.write('Product purchased');
+        } {
+            (newbalance1 - productPrice);
+        }
+        document.write('<br>', newbalance2);
+        document.write('<br>', 'END');
+
+    </script>
 </body>
 
 </html>
-<script>
-    const word0 = "Wassup";
-    const word0translation = "Здарова";
-
-    const word1 = "Bye";
-    const word1translation = "Покеда";
-
-    const word2 = "Programmer";
-    const word2translation = "Программист";
-
-    const wordsCount = 3;
-
-    const finishSuccessMessage = "Молодец. Good Result";
-    const finishUnSuccessMessage = "Молодец. Но постарайся лучше";
-
-    const correctAnswersMinPercent = 50; 
-
-    let correctAnswersCount = 0;
-
-    // ------------
-
-    const userAnswer0 = prompt(word0);
-    alert(userAnswer0 === word0translation);
-    document.write(userAnswer0)
-    if (userAnswer0 === word0translation) {
-        correctAnswersCount = correctAnswersCount + 1;
-    }
-
-    const userAnswer1 = prompt(word1);
-    alert(userAnswer1 === word1translation);
-    if (userAnswer1 === word1translation) {
-        correctAnswersCount = correctAnswersCount + 1;
-    }
-
-    const userAnswer2 = prompt(word2);
-    alert(userAnswer2 === word2translation);
-    if (userAnswer2 === word2translation) {
-        correctAnswersCount = correctAnswersCount + 1;
-    }
-    
-    const userCorrectAnswersPercent = correctAnswersCount / wordsCount * 100;
-
-    if (userCorrectAnswersPercent > correctAnswersMinPercent) {
-        alert(finishSuccessMessage);
-    } else {
-        alert(finishUnSuccessMessage);
-    }
-</script>
