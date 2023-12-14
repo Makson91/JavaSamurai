@@ -9,59 +9,74 @@
 
 <body>
     <script>
-        let balance = 110;
 
-        // --------------------------------
+        const vocabulary = {
+            words: {
+                word0: {
+                    original: "Wassup",
+                    translation: "Здарова"
+                },
+                word1: {
+                    original: "Bye",
+                    translation: "Покеда"
+                },
+                word2: {
+                    original: "Programmer",
+                    translation: "Программист"
+                },
+            },
+            wordsCount: 3
+        }
 
-        document.write('START', '<br>', '<br>');
 
-        let productPriceString = window.prompt('How much does product costs?');
-        let productPrice = Number(productPriceString);
-
-        if (isNaN(productPrice)) {
-            document.write('Your input is incorrect', '<br>');
-        } else {
-            if (balance < productPrice) {
-                document.write('Not enough money', '<br>');
-            } else {
-                document.write('Product purchased', '<br>');
-                balance = balance - productPrice;
+        const notificationMessages = {
+            start: {
+                hello: "Hello man. You can learn English. Good luck"
+            },
+            result: {
+                finishSuccess: "Молодец. Good Result",
+                finishUnSuccess: "Молодец. Но постарайся лучше"
             }
         }
 
-        //----------------------------------
-
-        productPrice = window.prompt('How much does product costs?');
-
-        if (isNaN(productPrice)) {
-            document.write('Your input is incorrect', '<br>');
-        } else {
-            if (balance < productPrice) {
-                document.write('Not enough money', '<br>');
-            } else {
-                document.write('Product purchased', '<br>');
-                balance = balance - productPrice;
-            }
+        const settings = {
+            correctAnswersMinPercent: 50
+        }
+        const result = {
+            correctAnswersCount: 0
         }
 
-        //----------------------------------
+        // ------------
 
-        productPrice = window.prompt('How much does product costs?');
+        alert(notificationMessages.start.hello)
 
-        if (isNaN(productPrice)) {
-            document.write('Your input is incorrect', '<br>');
-        } else {
-            if (balance < productPrice) {
-                document.write('Not enough money', '<br>');
-            } else {
-                document.write('Product purchased', '<br>');
-                balance = balance - productPrice;
-            }
+        const userAnswer0 = prompt(vocabulary.words.word0.original);
+        alert(userAnswer0 === vocabulary.words.word0.translation);
+        if (userAnswer0 === vocabulary.words.word0.translation) {
+            result.correctAnswersCount = result.correctAnswersCount + 1;
         }
 
-        document.write('<br>', balance);
-        document.write('<br>', '<br>', 'END');
+        const userAnswer1 = prompt(vocabulary.words.word1.original);
+        alert(userAnswer1 === vocabulary.words.word1.translation);
+        if (userAnswer1 === vocabulary.words.word1.translation) {
+            result.correctAnswersCount = result.correctAnswersCount + 1;
+        }
 
+        const userAnswer2 = prompt(vocabulary.words.word2.original);
+        alert(userAnswer2 === vocabulary.words.word2.translation);
+        if (userAnswer2 === vocabulary.words.word2.translation) {
+            result.correctAnswersCount = result.correctAnswersCount + 1;
+        }
+
+        //---------------------
+
+        const userCorrectAnswersPercent = result.correctAnswersCount / vocabulary.wordsCount * 100;
+
+        if (userCorrectAnswersPercent > settings.correctAnswersMinPercent) {
+            alert(notificationMessages.result.finishSuccess);
+        } else {
+            alert(notificationMessages.result.finishUnSuccess);
+        }
     </script>
 </body>
 
