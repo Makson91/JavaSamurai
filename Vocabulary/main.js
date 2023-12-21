@@ -1,4 +1,28 @@
-
+//------ Functions, Подпрограммы
+function showHelloMessage(_notificationMessages) {
+    alert(_notificationMessages.start.hello);
+}
+function startTraining(_words, _result) {
+    for (i = 0; i < _words.length; i++) {
+        let userAnswer = prompt(_words[i].original);
+        alert(userAnswer === _words[i].translation);
+        if (userAnswer === _words[i].translation) {
+            _result.correctAnswersCount = _result.correctAnswersCount + 1;
+        }
+    }
+}
+function getPercentage(_result, _words) {
+    return _result.correctAnswersCount / _words.length * 100;
+}
+function showResult(_result, _words, _settings, _notificationMessages) {
+    const userCorrectAnswersPercent = getPercentage(result, words);
+    if (userCorrectAnswersPercent > settings.correctAnswersMinPercent) {
+        alert(notificationMessages.result.finishSuccess);
+    } else {
+        alert(notificationMessages.result.finishUnSuccess);
+    }
+}
+//----------- data Данные
 const words = [
     {
         original: "Wassup",
@@ -21,7 +45,6 @@ const words = [
         translation: "Экран"
     }
 ]
-
 const notificationMessages = {
     start: {
         hello: "Hello man. You can learn English. Good luck"
@@ -31,32 +54,13 @@ const notificationMessages = {
         finishUnSuccess: "Молодец. Но постарайся лучше"
     }
 }
-
 const settings = {
     correctAnswersMinPercent: 50
 }
 const result = {
     correctAnswersCount: 0
 }
-
-// ------------
-
-alert(notificationMessages.start.hello)
-
-for (i = 0; i < words.length; i++) {
-    let userAnswer = prompt(words[i].original);
-    alert(userAnswer === words[i].translation);
-    if (userAnswer === words[i].translation) {
-        result.correctAnswersCount = result.correctAnswersCount + 1;
-    }
-}
-
-//---------------------
-
-const userCorrectAnswersPercent = result.correctAnswersCount / words.length * 100;
-
-if (userCorrectAnswersPercent > settings.correctAnswersMinPercent) {
-    alert(notificationMessages.result.finishSuccess);
-} else {
-    alert(notificationMessages.result.finishUnSuccess);
-}
+// ------------ main Запуск
+showHelloMessage(notificationMessages);
+startTraining(words, result);
+showResult(result, words, settings, notificationMessages);
